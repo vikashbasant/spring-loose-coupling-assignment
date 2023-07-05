@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.springframework.org/schema/beans"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Create an Object with the DataService-->
+    <bean id="dService" class="com.di.springloosecouplingassignment.DataService"/>
+    <!--Create an Object with the HelloTuneService-->
+    <bean id="hService" class="com.di.springloosecouplingassignment.HelloTuneService"/>
+    <!--Create an Object with the MissedCallAlertService-->
+    <bean id="mService" class="com.di.springloosecouplingassignment.MissedCallAlertService"/>
+
+    <!--Create an Object with the AirtelService by using constructor injection-->
+    <bean id="aService" class="com.di.springloosecouplingassignment.AirtelService">
+        <constructor-arg name="service" ref="mService"/>
+    </bean>
+
+
+</beans>
